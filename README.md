@@ -1,0 +1,3 @@
+**# Android fullREST application with Spring Framework #**
+
+A aplicação foi criada com a utilização do gerenciador de construção gradle. Um pacote .jar é gerado na pasta build, lib com a utilização do comando gradle build a partir da pasta raiz do projeto. Para executar o projeto sem a necessidade de utilizar o comando java -jar no pacote criado é necessário que se execute o comando gradle bootrun. 
