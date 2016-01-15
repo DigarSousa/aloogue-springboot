@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="48804624">
+    <data-source source="LOCAL" name="PostgreSQL - aloogue_app@54.233.101.128" uuid="eb772d75-2182-4365-b711-625c25cdf3cb">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://54.233.101.128:5554/aloogue_app</jdbc-url>
+    </data-source>
+  </component>
+</project>
