@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(value = "/galo")
+@RequestMapping(value = "/user")
 public class User {
     //Todo: create the user Repository... receive the user by post method and save it.
     @RequestMapping(method = RequestMethod.POST)
