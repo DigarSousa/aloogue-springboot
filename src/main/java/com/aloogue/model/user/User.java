@@ -1,6 +1,7 @@
 package com.aloogue.model.user;
 
 import lombok.Data;
+import org.hibernate.validator.constraints.Email;
 
 import javax.persistence.*;
 
@@ -12,10 +13,11 @@ import javax.persistence.*;
 @Data
 public class User {
     @Id
-    @Column
+    @Column(name="id_user")
     @GeneratedValue
     private Integer id;
 
-    @Column
-    private String name;
+    @Column(name="email")
+    @Email
+    private String email;
 }
