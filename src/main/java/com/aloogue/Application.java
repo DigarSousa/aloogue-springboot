@@ -37,7 +37,7 @@ public class Application {
             Class.forName("org.postgresql.Driver");
             DriverManagerDataSource dataSource = new DriverManagerDataSource();
             dataSource.setDriverClassName("org.postgresql.Driver");
-            dataSource.setUrl("jdbc:postgresql://54.207.19.51:5554/aloogue_app");
+            dataSource.setUrl("jdbc:postgresql://54.233.95.117:5554/aloogue_app");
             dataSource.setUsername("aloogue");
             dataSource.setPassword("masterkeyaloogue");
             return dataSource;
@@ -56,8 +56,6 @@ public class Application {
         return adapter;
     }
 
-
-
     @Bean
     public Properties jpaProperties() {
         Properties properties = new Properties();
@@ -71,7 +69,7 @@ public class Application {
         factoryBean.setDataSource(dataSource());
         factoryBean.setPackagesToScan(COM_ALOOGUE_MODEL);
         factoryBean.setJpaVendorAdapter(jpaVendorAdapter());
-        //factoryBean.setJpaProperties(jpaProperties());
+        factoryBean.setJpaProperties(jpaProperties());
         return factoryBean;
     }
 }

@@ -9,9 +9,9 @@ import javax.persistence.*;
  * Created by edgar on 03/01/16.
  */
 @Entity
-@Table(name = "User")
+@Table(name = "Usuario")
 @Data
-public class User {
+public class Usuario {
     @Id
     @Column(name="id_user")
     @GeneratedValue
