@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository;
  * Created by edgar on 03/01/16.
  */
 @Repository
-public interface UserRepository extends CrudRepository<Usuario, Integer> {
-    java.util.List<Usuario> findByEmail(@Param("email") String email);
+public interface UserRepository extends CrudRepository<UserApp, Integer> {
+    java.util.List<UserApp> findByEmail(@Param("email") String email);
 }

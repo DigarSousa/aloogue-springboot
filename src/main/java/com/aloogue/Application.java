@@ -19,11 +19,7 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import javax.sql.DataSource;
 import java.util.Properties;
 
-@Configuration
-@ComponentScan
-@EnableJpaRepositories
-@Import(RepositoryRestMvcAutoConfiguration.class)
-@EnableAutoConfiguration
+@SpringBootApplication
 public class Application {
     private static final String COM_ALOOGUE_MODEL = "com.aloogue";
 
@@ -37,9 +33,9 @@ public class Application {
             Class.forName("org.postgresql.Driver");
             DriverManagerDataSource dataSource = new DriverManagerDataSource();
             dataSource.setDriverClassName("org.postgresql.Driver");
-            dataSource.setUrl("jdbc:postgresql://54.233.95.117:5554/aloogue_app");
-            dataSource.setUsername("aloogue");
-            dataSource.setPassword("masterkeyaloogue");
+            dataSource.setUrl("jdbc:postgresql://localhost:5432/postgres");
+            dataSource.setUsername("postgres");
+            dataSource.setPassword("aloogue");
             return dataSource;
         } catch (ClassNotFoundException e) {
             e.printStackTrace();

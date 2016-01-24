@@ -1,27 +1,38 @@
 package com.aloogue.controller;
 
-import com.aloogue.model.user.Usuario;
-import com.aloogue.model.user.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.aloogue.model.user.UserApp;
+import com.aloogue.service.UserService;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequestMapping(value = "user")
 public class UserController {
-    @Autowired
-    private UserRepository userRepository;
+    @RequestMapping(method = RequestMethod.GET)
+    public UserApp getUser(@RequestBody Integer id) {
+        return UserService.getUser(id);
 
-    @RequestMapping(value = "/galo",method = RequestMethod.POST)
-    public String saveUser(@RequestBody Usuario usuario) {
-        if(usuario ==null){
-            return "nao chegou nada";
-        }
-        userRepository.save(usuario);
-        if (userRepository.findAll()!=null){
-            return "galão da massa";
-        }
-        return "erro";
+    }
+
+    @RequestMapping(method = RequestMethod.POST)
+    public Boolean saveUser(@RequestBody UserApp userApp) {
+        return UserService.saveUser(userApp);
+    }
+
+    @RequestMapping(method = RequestMethod.PUT)
+    public Boolean updateUser(@RequestBody UserApp userApp) {
+        return true;
+    }
+
+    @RequestMapping(method = RequestMethod.DELETE)
+    public Boolean deleteUser(@RequestBody UserApp userApp) {
+        return true;
+    }
+
+    @RequestMapping(value = "login", method = RequestMethod.POST)
+    public Boolean login(@RequestBody String login) {
+        return true;
     }
 }
