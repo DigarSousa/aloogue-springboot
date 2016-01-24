@@ -1,9 +1,7 @@
 package com.aloogue.model;
 
 import com.aloogue.model.user.UserApp;
-import com.orm.SugarRecord;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 
 import java.util.Date;
 
@@ -11,11 +9,7 @@ import java.util.Date;
  * Created by Pedreduardo on 16/10/2015.
  */
 @Data
-@EqualsAndHashCode(callSuper = false)
-public class RentContract extends SugarRecord {
-
-    public RentContract() {
-    }
+public class RentContract {
 
     private Long id;
     private String description;

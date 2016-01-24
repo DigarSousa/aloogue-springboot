@@ -1,6 +1,5 @@
 package com.aloogue.model;
 
-import com.orm.SugarRecord;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -9,11 +8,7 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class Country extends SugarRecord{
-
-
-    public Country() {
-    }
+public class Country {
 
     private Long id;
     private String description;

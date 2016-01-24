@@ -1,9 +1,7 @@
 package com.aloogue.model;
 
 import com.aloogue.model.user.UserApp;
-import com.orm.SugarRecord;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 
 import java.util.List;
 
@@ -11,11 +9,8 @@ import java.util.List;
  * Created by Pedreduardo / Eddgar on 02/12/2015.
  */
 @Data
-@EqualsAndHashCode(callSuper = false)
-public class Place extends SugarRecord {
+public class Place {
 
-    public Place() {
-    }
 
     private Long id;
     private String cpfCnpj;
