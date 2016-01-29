@@ -33,7 +33,7 @@ public class Application {
             Class.forName("org.postgresql.Driver");
             DriverManagerDataSource dataSource = new DriverManagerDataSource();
             dataSource.setDriverClassName("org.postgresql.Driver");
-            dataSource.setUrl("jdbc:postgresql://localhost:5432/postgres");
+            dataSource.setUrl("jdbc:postgresql://localhost:5554/postgres");
             dataSource.setUsername("postgres");
             dataSource.setPassword("aloogue");
             return dataSource;
@@ -55,7 +55,7 @@ public class Application {
     @Bean
     public Properties jpaProperties() {
         Properties properties = new Properties();
-        properties.put(AvailableSettings.HBM2DDL_AUTO, "update");
+        properties.put(AvailableSettings.HBM2DDL_AUTO, "create-drop");
         return properties;
     }
 

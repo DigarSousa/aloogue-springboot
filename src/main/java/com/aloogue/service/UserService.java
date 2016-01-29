@@ -2,6 +2,7 @@ package com.aloogue.service;
 
 import com.aloogue.model.user.UserApp;
 import com.aloogue.model.user.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class UserService {
+    @Autowired
     private UserRepository userRepository;
 
     public void saveUser(UserApp user) {

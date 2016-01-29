@@ -10,6 +10,4 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UserRepository extends CrudRepository<UserApp, Integer> {
     java.util.List<UserApp> findByEmail(@Param("email") String email);
-
-    Object findByLoginCredencials(@Param("email") String email, @Param("password") String password);
 }

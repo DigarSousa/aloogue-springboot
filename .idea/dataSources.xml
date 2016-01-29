@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="3358275768">
+  <component name="DataSourceManagerImpl" format="xml" hash="2932767328">
     <data-source source="LOCAL" name="PostgreSQL - jdbc:postgresql://54.233.95.117 :5554/aloogue_app" uuid="eb772d75-2182-4365-b711-625c25cdf3cb">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
@@ -11,7 +11,7 @@
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://localhost:5432/postgres</jdbc-url>
+      <jdbc-url>jdbc:postgresql://localhost:5554/postgres</jdbc-url>
     </data-source>
   </component>
 </project>
