@@ -1,6 +1,5 @@
 package com.aloogue.model.user;
 
-import com.aloogue.model.file.PictureFile;
 import lombok.Data;
 
 import javax.persistence.*;

@@ -7,7 +7,7 @@ import javax.persistence.*;
 
 @Data
 @Entity
-@Table(name="picture_file")
+@Table(name = "picture_file")
 public class PictureFile {
 
     @Id
