@@ -5,9 +5,6 @@ import com.aloogue.model.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-/**
- * Created by edgar on 23/01/16.
- */
 @Component
 public class UserService {
     @Autowired
@@ -17,15 +14,11 @@ public class UserService {
         userRepository.save(user);
     }
 
-    public UserApp getUser(Integer id) {
-        return userRepository.findOne(id);
-    }
-
     public void deleteUser(UserApp userApp) {
         userRepository.delete(userApp);
     }
 
-    public String login(String login) {
-        return login;
+    public UserApp login(String email, String password) {
+        return (UserApp) userRepository.findByEmailAndPassword(email, password);
     }
 }

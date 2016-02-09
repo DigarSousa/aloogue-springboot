@@ -1,12 +1,12 @@
 package com.aloogue.controller;
 
+import com.aloogue.model.file.PictureFile;
 import com.aloogue.model.user.UserApp;
+import com.aloogue.service.PictureProfileService;
 import com.aloogue.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(value = "user")
@@ -14,10 +14,12 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping(method = RequestMethod.GET)
-    public UserApp getUser(@RequestBody Integer id) {
-        return userService.getUser(id);
+    @Autowired
+    private PictureProfileService pictureProfileService;
 
+    @RequestMapping(method = RequestMethod.GET)
+    public UserApp login(@RequestParam String email, @RequestParam String password) {
+        return userService.login(email, password);
     }
 
     @RequestMapping(method = RequestMethod.POST)
@@ -35,8 +37,8 @@ public class UserController {
         userService.deleteUser(userApp);
     }
 
-    @RequestMapping(value = "login", method = RequestMethod.POST)
-    public String login(@RequestBody String login) {
-        return userService.login(login);
+    @RequestMapping(value = "/picture", method = RequestMethod.GET, produces = MediaType.IMAGE_PNG_VALUE)
+    public PictureFile getProfilePicture(@RequestBody Long id) {
+        return pictureProfileService.getPictureByUser(id);
     }
 }
