@@ -10,8 +10,8 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    public void saveUser(UserApp user) {
-        userRepository.save(user);
+    public UserApp saveUser(UserApp user) {
+        return userRepository.save(user);
     }
 
     public void deleteUser(UserApp userApp) {
