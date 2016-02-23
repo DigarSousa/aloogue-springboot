@@ -6,13 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(value = "user")
+@RequestMapping(value = "userapp")
 public class UserController {
     @Autowired
     private UserService userService;
 
     @RequestMapping(method = RequestMethod.GET)
-    public UserApp login(@RequestParam String email, @RequestParam String password) {
+        public UserApp login(@RequestParam String email, @RequestParam String password) {
         return userService.login(email, password);
     }
 
