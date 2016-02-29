@@ -3,11 +3,12 @@ package com.aloogue.model.user;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Data
 @Entity
 @Table(name = "user_app")
-public class UserApp {
+public class UserApp implements Serializable {
 
     @Id
     @Column(name = "id_user_app")
@@ -22,16 +23,4 @@ public class UserApp {
 
     @Column
     private String password;
-
-    /*@ManyToOne(targetEntity = AddressApp.class)
-    @JoinTable(name="")
-    private AddressApp addressApp;*/
-
-    /*@OneToMany(targetEntity = Phone.class)
-    @JoinTable(name = "user_app_phone", joinColumns = {
-            @JoinColumn(name = "id_user_app")}, inverseJoinColumns = {
-            @JoinColumn(name = "id_phone")})
-    private List<Phone> phones;*/
-
-
 }

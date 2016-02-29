@@ -10,10 +10,12 @@ public class PlaceService {
     @Autowired
     private PlaceRepository placeRepository;
 
-    public Place getPlace(Long id) {
-        return placeRepository.findOne(id);
+    public Place getPlace(Long userId) {
+        return placeRepository.findByUserAppId(userId);
+
     }
+
     public Place savePlace(Place place) {
-       return placeRepository.save(place);
+        return placeRepository.save(place);
     }
 }

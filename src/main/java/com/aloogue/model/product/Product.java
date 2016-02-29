@@ -1,5 +1,6 @@
 package com.aloogue.model.product;
 
+import com.aloogue.model.place.Place;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -21,4 +22,8 @@ public class Product implements Serializable {
 
     @Column
     private String description;
+
+    @ManyToOne(targetEntity = Place.class)
+    @JoinColumn(name = "id_place")
+    private Place place;
 }

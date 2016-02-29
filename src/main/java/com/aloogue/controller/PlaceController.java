@@ -12,8 +12,8 @@ public class PlaceController {
     private PlaceService placeService;
 
     @RequestMapping(method = RequestMethod.GET)
-    public Place getPlace(@RequestParam Long id) {
-        return placeService.getPlace(id);
+    public Place getPlace(@RequestParam Long userId) {
+        return placeService.getPlace(userId);
     }
 
     @RequestMapping(method = RequestMethod.POST)

@@ -25,7 +25,7 @@ public class Place implements Serializable {
     @Column
     private String name;
 
-    @ManyToOne(targetEntity = UserApp.class)
+    @OneToOne(targetEntity = UserApp.class)
     @JoinColumn(name = "id_user_app")
     private UserApp userApp;
 
@@ -33,7 +33,7 @@ public class Place implements Serializable {
     @JoinColumn(name = "id_address_app")
     private AddressApp addressApp;
 
-    @OneToMany(targetEntity = Phone.class,cascade = CascadeType.ALL)
+    @OneToMany(targetEntity = Phone.class, cascade = CascadeType.ALL)
     @JoinTable(name = "place_phone", joinColumns = {
             @JoinColumn(name = "id_place")}, inverseJoinColumns = {
             @JoinColumn(name = "id_phone")})
@@ -41,6 +41,7 @@ public class Place implements Serializable {
 
     @Column
     private String businessInitialHour;
+
     @Column
     private String businessFinalHour;
 }
