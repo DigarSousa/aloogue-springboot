@@ -59,7 +59,7 @@ public class Application {
         factoryBean.setDataSource(dataSource());
         factoryBean.setPackagesToScan(COM_ALOOGUE_MODEL);
         factoryBean.setJpaVendorAdapter(jpaVendorAdapter());
-        //factoryBean.setJpaProperties(jpaProperties());
+        factoryBean.setJpaProperties(jpaProperties());
         return factoryBean;
     }
 }
