@@ -49,7 +49,7 @@ public class Application {
     @Bean
     public Properties jpaProperties() {
         Properties properties = new Properties();
-        properties.put(AvailableSettings.HBM2DDL_AUTO, "create-drop");
+        properties.put(AvailableSettings.HBM2DDL_AUTO, "create");
         return properties;
     }
 

@@ -1,6 +1,5 @@
 package com.aloogue.model.place;
 
-import com.aloogue.model.AddressApp;
 import com.aloogue.model.Phone;
 import com.aloogue.model.user.UserApp;
 import lombok.Data;
@@ -29,10 +28,6 @@ public class Place implements Serializable {
     @JoinColumn(name = "id_user_app")
     private UserApp userApp;
 
-    @OneToOne(targetEntity = AddressApp.class, cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_address_app")
-    private AddressApp addressApp;
-
     @OneToMany(targetEntity = Phone.class, cascade = CascadeType.ALL)
     @JoinTable(name = "place_phone", joinColumns = {
             @JoinColumn(name = "id_place")}, inverseJoinColumns = {
@@ -44,4 +39,10 @@ public class Place implements Serializable {
 
     @Column
     private String businessFinalHour;
+
+    @Column
+    private Double latitude;
+
+    @Column
+    private Double longitude;
 }
