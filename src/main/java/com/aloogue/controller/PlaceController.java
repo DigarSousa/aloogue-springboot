@@ -17,7 +17,19 @@ public class PlaceController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public Place savePlace(@RequestBody Place  place) {
+    public Place savePlace(@RequestBody Place place) {
         return placeService.savePlace(place);
     }
+
+    @RequestMapping(value = "/around", method = RequestMethod.GET)
+    public Place findPlacesAround(@RequestParam Double latitude, @RequestParam Double longitude, @RequestParam Double distance) {
+        Place place = new Place();
+        place.setLongitude(longitude);
+        place.setLatitude(latitude);
+        place.setId(1L);
+        place.setName("dsafsafa");
+        return place;
+
+    }
 }
+

@@ -8,9 +8,10 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 
-@Data
 @Entity
 @Table
+
+@Data
 public class Place implements Serializable {
 
     @Id
@@ -24,6 +25,19 @@ public class Place implements Serializable {
     @Column
     private String name;
 
+
+    @Column
+    private Double latitude;
+
+    @Column
+    private Double longitude;
+
+    @Column
+    private String businessInitialHour;
+
+    @Column
+    private String businessFinalHour;
+
     @OneToOne(targetEntity = UserApp.class)
     @JoinColumn(name = "id_user_app")
     private UserApp userApp;
@@ -34,15 +48,4 @@ public class Place implements Serializable {
             @JoinColumn(name = "id_phone")})
     private List<Phone> phones;
 
-    @Column
-    private String businessInitialHour;
-
-    @Column
-    private String businessFinalHour;
-
-    @Column
-    private Double latitude;
-
-    @Column
-    private Double longitude;
 }
