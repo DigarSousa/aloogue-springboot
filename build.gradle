@@ -7,6 +7,9 @@ buildscript {
     }
 }
 
+include 'core'
+include 'annotation-processors'
+
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
@@ -26,7 +29,7 @@ targetCompatibility = 1.8
 
 dependencies {
     compile 'com.google.code.gson:gson:2.5'
-    compile("org.projectlombok:lombok:1.16.4")
+    compile("org.projectlombok:lombok:1.16.8")
     compile("org.springframework.boot:spring-boot-starter-web")
     compile("org.springframework.boot:spring-boot-starter-data-jpa")
     compile("org.springframework.boot:spring-boot-starter-data-rest")
@@ -38,6 +41,7 @@ dependencies {
     compile("com.fasterxml.jackson.core:jackson-core:2.4.1")
     compile("com.fasterxml.jackson.core:jackson-databind:2.4.1.1")
     compile("com.auth0:java-jwt:2.1.0")
+    compile project(':annotation-processors')
 }
 
 task wrapper(type: Wrapper) {

@@ -22,14 +22,8 @@ public class PlaceController {
     }
 
     @RequestMapping(value = "/around", method = RequestMethod.GET)
-    public Place findPlacesAround(@RequestParam Double latitude, @RequestParam Double longitude, @RequestParam Double distance) {
-        Place place = new Place();
-        place.setLongitude(longitude);
-        place.setLatitude(latitude);
-        place.setId(1L);
-        place.setName("dsafsafa");
-        return place;
-
+    public Iterable<Place> findPlacesAround(@RequestParam Double latitude, @RequestParam Double longitude, @RequestParam Double distance) {
+        return placeService.findPlacesAround(latitude, longitude, distance);
     }
 }
 
