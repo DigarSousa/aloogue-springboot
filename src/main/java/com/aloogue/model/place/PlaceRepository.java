@@ -10,10 +10,12 @@ public interface PlaceRepository extends CrudRepository<Place, Long> {
     @Query("select p from Place p where p.userApp.id=?1")
     Place findByUserAppId(Long id);
 
-    @Query(" SELECT distinct p from Place p "
-            + " WHERE "
-            + " ACOS (COS( RADIANS( p.latitude ) ) * COS( RADIANS(?1)) "
-            + " * COS( RADIANS( p.longitude ) - RADIANS(?2)) "
-            + " + SIN( RADIANS( p.latitude ) ) * SIN( RADIANS(?1) ) ) * 6378 <= ?3 ")
-    Iterable<Place> findPlaceByDistance(Double latitude, Double longitude, Double distance);
+    @Query("   SELECT distinct p from Product produtc"
+            +" JOIN produtc.place p"
+            +" WHERE "
+            +"  produtc.description LIKE CONCAT('%',?1,'%') "
+            +" AND ACOS(COS( RADIANS( p.latitude ) ) * COS( RADIANS(?2)) "
+            +"  * COS( RADIANS( p.longitude ) - RADIANS(?3)) "
+            +"  + SIN( RADIANS( p.latitude ) ) * SIN( RADIANS(?2) ) ) * 6378 <= ?4 ")
+    Iterable<Place> findPlaceByDistance(String description, Double latitude, Double longitude, Double distance);
 }

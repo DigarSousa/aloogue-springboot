@@ -21,7 +21,7 @@ public class PlaceService {
         return placeRepository.save(place);
     }
 
-    public Iterable<Place> findPlacesAround(Double latitude, Double longitude, Double distance) {
-        return placeRepository.findPlaceByDistance(latitude, longitude, distance);
+    public Iterable<Place> findPlacesAround(String description,Double latitude, Double longitude, Double distance) {
+        return placeRepository.findPlaceByDistance(description,latitude, longitude, distance);
     }
 }
