@@ -7,8 +7,6 @@ buildscript {
     }
 }
 
-include 'core'
-include 'annotation-processors'
 
 apply plugin: 'java'
 apply plugin: 'eclipse'
@@ -41,7 +39,6 @@ dependencies {
     compile("com.fasterxml.jackson.core:jackson-core:2.4.1")
     compile("com.fasterxml.jackson.core:jackson-databind:2.4.1.1")
     compile("com.auth0:java-jwt:2.1.0")
-    compile project(':annotation-processors')
 }
 
 task wrapper(type: Wrapper) {
