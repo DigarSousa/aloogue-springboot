@@ -4,6 +4,7 @@ import org.hibernate.cfg.AvailableSettings;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Profile;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.JpaVendorAdapter;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
@@ -62,4 +63,5 @@ public class Application {
         factoryBean.setJpaProperties(jpaProperties());
         return factoryBean;
     }
+
 }
