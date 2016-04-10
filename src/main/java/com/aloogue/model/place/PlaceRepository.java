@@ -12,10 +12,11 @@ public interface PlaceRepository extends CrudRepository<Place, Long> {
 
     @Query("   SELECT distinct p from Product produtc"
             +" JOIN produtc.place p"
+            +" JOIN p.address a"
             +" WHERE "
             +"  produtc.description LIKE CONCAT('%',?1,'%') "
-            +" AND ACOS(COS( RADIANS( p.latitude ) ) * COS( RADIANS(?2)) "
-            +"  * COS( RADIANS( p.longitude ) - RADIANS(?3)) "
-            +"  + SIN( RADIANS( p.latitude ) ) * SIN( RADIANS(?2) ) ) * 6378 <= ?4 ")
+            +" AND ACOS(COS( RADIANS( a.latitude ) ) * COS( RADIANS(?2)) "
+            +"  * COS( RADIANS( a.longitude ) - RADIANS(?3)) "
+            +"  + SIN( RADIANS( a.latitude ) ) * SIN( RADIANS(?2) ) ) * 6378 <= ?4 ")
     Iterable<Place> findPlaceByDistance(String description, Double latitude, Double longitude, Double distance);
 }

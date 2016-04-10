@@ -1,7 +1,9 @@
 package com.aloogue.model.place;
 
+import com.aloogue.model.Address;
 import com.aloogue.model.Phone;
 import com.aloogue.model.user.UserApp;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -25,13 +27,6 @@ public class Place implements Serializable {
     @Column
     private String name;
 
-
-    @Column
-    private Double latitude;
-
-    @Column
-    private Double longitude;
-
     @Column
     private String businessInitialHour;
 
@@ -48,4 +43,7 @@ public class Place implements Serializable {
             @JoinColumn(name = "id_phone")})
     private List<Phone> phones;
 
+    @JsonManagedReference
+    @OneToOne(mappedBy = "place", cascade = CascadeType.ALL)
+    private Address address;
 }
