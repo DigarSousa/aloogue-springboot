@@ -1,5 +1,6 @@
 package com.aloogue.model.product;
 
+import com.aloogue.model.place.Place;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -13,6 +14,6 @@ public interface ProductRepository extends CrudRepository<Product, Long> {
 
     @Modifying
     @Transactional
-    @Query("delete from Product p where p.place.id=?1")
-    void deleteByPlace(Long idPlace);
+    @Query("delete from Product p where p.place=?1")
+    void deleteByPlace(Place place);
 }

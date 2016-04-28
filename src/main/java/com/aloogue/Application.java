@@ -5,6 +5,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Profile;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.JpaVendorAdapter;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
@@ -28,7 +30,7 @@ public class Application {
             Class.forName("org.postgresql.Driver");
             DriverManagerDataSource dataSource = new DriverManagerDataSource();
             dataSource.setDriverClassName("org.postgresql.Driver");
-            dataSource.setUrl("jdbc:postgresql://localhost:5554/postgres");
+            dataSource.setUrl("jdbc:postgresql://localhost:5432/postgres");
             dataSource.setUsername("postgres");
             dataSource.setPassword("aloogue");
             return dataSource;

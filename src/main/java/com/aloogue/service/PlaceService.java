@@ -30,7 +30,8 @@ public class PlaceService {
     }
 
     public ResponseEntity deletePlace(Place place) {
-        productRepository.deleteByPlace(place.getId());
+
+        productRepository.deleteByPlace(place);
         placeRepository.delete(place);
         return new ResponseEntity(HttpStatus.ACCEPTED);
     }
