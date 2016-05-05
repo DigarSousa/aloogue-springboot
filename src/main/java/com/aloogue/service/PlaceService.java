@@ -18,7 +18,6 @@ public class PlaceService {
 
     public Place getPlace(Long userId) {
         return placeRepository.findByUserAppId(userId);
-
     }
 
     public Place savePlace(Place place) {

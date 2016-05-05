@@ -1,16 +1,13 @@
 package com.aloogue.model.place;
 
 import com.aloogue.model.Address;
-import com.aloogue.model.Phone;
 import com.aloogue.model.user.UserApp;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.List;
 
 @Entity
 @Table
@@ -40,11 +37,11 @@ public class Place implements Serializable {
     @JoinColumn(name = "id_user_app")
     private UserApp userApp;
 
-    @OneToMany(targetEntity = Phone.class, cascade = CascadeType.ALL)
-    @JoinTable(name = "place_phone", joinColumns = {
-            @JoinColumn(name = "id_place")}, inverseJoinColumns = {
-            @JoinColumn(name = "id_phone")})
-    private List<Phone> phones;
+    @Column
+    private String phone;
+
+    @Column
+    private byte[] picture;
 
     @JsonManagedReference
     @OneToOne(mappedBy = "place", cascade = CascadeType.ALL)
