@@ -12,16 +12,16 @@ public class ProductService {
     @Autowired
     private ProductRepository productRepository;
 
-    public Iterable<Product> saveProduct(Iterable<Product>products) {
-        return productRepository.save(products);
+    public Product saveProduct(Product product) {
+        return productRepository.save(product);
     }
 
-    public Iterable<Product> findByPlace(Long id){
+    public Iterable<Product> findByPlace(Long id) {
         return productRepository.findByPlace(id);
     }
 
     public ResponseEntity delete(Iterable<Product> products) {
         productRepository.delete(products);
-        return new ResponseEntity(HttpStatus.ACCEPTED);
+        return new ResponseEntity(HttpStatus.OK);
     }
 }

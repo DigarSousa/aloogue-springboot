@@ -12,9 +12,13 @@ apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'spring-boot'
 
+springBoot {
+    executable = true
+}
+
 jar {
-    baseName = 'gs-rest-controller'
-    version = '0.1.0'
+    baseName = 'aloogue'
+    version = '1.0'
 }
 
 repositories {

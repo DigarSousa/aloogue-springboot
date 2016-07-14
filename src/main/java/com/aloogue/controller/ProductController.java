@@ -14,18 +14,17 @@ public class ProductController {
     private ProductService productService;
 
     @RequestMapping(method = RequestMethod.POST)
-    public Iterable<Product> saveProduct(@RequestBody Iterable<Product> product) {
+    public Product saveProduct(@RequestBody Product product) {
         return productService.saveProduct(product);
     }
 
-    @RequestMapping(method = RequestMethod.GET)
-    public Iterable<Product> findByPlace(@RequestParam Long id) {
-        return productService.findByPlace(id);
+    @RequestMapping(value = "place/{placeId}", method = RequestMethod.GET)
+    public Iterable<Product> findByPlace(@PathVariable Long placeId) {
+        return productService.findByPlace(placeId);
     }
 
     @RequestMapping(method = RequestMethod.DELETE)
     public ResponseEntity delete(@RequestBody Iterable<Product> products) {
         return productService.delete(products);
     }
-
 }

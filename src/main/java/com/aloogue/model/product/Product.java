@@ -21,9 +21,18 @@ public class Product implements Serializable {
     private String code;
 
     @Column
+    private String name;
+
+    @Column
     private String description;
 
     @ManyToOne(targetEntity = Place.class)
     @JoinColumn(name = "id_place")
     private Place place;
+
+    @Column
+    private Double price;
+
+    @Column(name = "RENT_TYPE")
+    private String rentType;
 }
