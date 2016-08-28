@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/alooguespringapplication.iml" filepath="$PROJECT_DIR$/alooguespringapplication.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/alooguespringapplication.iml" filepath="$PROJECT_DIR$/.idea/modules/alooguespringapplication.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/alooguespringapplication_main.iml" filepath="$PROJECT_DIR$/.idea/modules/alooguespringapplication_main.iml" group="alooguespringapplication" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/alooguespringapplication_test.iml" filepath="$PROJECT_DIR$/.idea/modules/alooguespringapplication_test.iml" group="alooguespringapplication" />
     </modules>
   </component>
 </project>

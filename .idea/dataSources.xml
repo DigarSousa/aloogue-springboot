@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="301623448">
+  <component name="DataSourceManagerImpl" format="xml" hash="394015906">
     <data-source source="LOCAL" name="Servidor" uuid="eb772d75-2182-4365-b711-625c25cdf3cb">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://52.67.9.40:5432/postgres</jdbc-url>
+      <jdbc-url>jdbc:postgresql://52.67.29.228:5432/postgres</jdbc-url>
     </data-source>
     <data-source source="LOCAL" name="PostgreSQL - postgres@localhost" uuid="08937432-f802-47f4-867a-032e137cdc8e">
       <driver-ref>postgresql</driver-ref>

@@ -3,6 +3,7 @@ package com.aloogue.controller;
 import com.aloogue.model.place.Place;
 import com.aloogue.service.PlaceService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,8 +14,13 @@ public class PlaceController {
     private PlaceService placeService;
 
     @RequestMapping(method = RequestMethod.GET)
-    public Place getPlace(@RequestParam Long userId) {
-        return placeService.getPlace(userId);
+    public ResponseEntity<Place> getPlace(@RequestParam Long userId) {
+        Place place = placeService.getPlace(userId);
+
+        if (place != null) {
+            return new ResponseEntity<>(place, HttpStatus.ACCEPTED);
+        }
+        return new ResponseEntity<>(new Place(), HttpStatus.NOT_FOUND);
     }
 
     @RequestMapping(method = RequestMethod.POST)
