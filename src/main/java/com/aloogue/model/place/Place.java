@@ -28,10 +28,10 @@ public class Place implements Serializable {
     private String name;
 
     @Column
-    private String businessInitialHour;
+    private String startHour;
 
     @Column
-    private String businessFinalHour;
+    private String finishHour;
 
     @OneToOne(targetEntity = UserApp.class)
     @JoinColumn(name = "id_user_app")
@@ -39,9 +39,6 @@ public class Place implements Serializable {
 
     @Column
     private String phone;
-
-    @Column
-    private byte[] picture;
 
     @JsonManagedReference
     @OneToOne(mappedBy = "place", cascade = CascadeType.ALL)
