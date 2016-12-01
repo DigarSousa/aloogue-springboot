@@ -11,6 +11,9 @@ import org.springframework.orm.jpa.vendor.Database;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 
 import javax.sql.DataSource;
+
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.Properties;
 
 @SpringBootApplication
@@ -23,15 +26,23 @@ public class Application {
 
     @Bean
     public DataSource dataSource() {
+        URI dbUri;
         try {
+            dbUri= new URI(System.getenv("DATABASE_URL"));
+            String username = dbUri.getUserInfo().split(":")[0];
+            String password = dbUri.getUserInfo().split(":")[1];
+
             Class.forName("org.postgresql.Driver");
+
             DriverManagerDataSource dataSource = new DriverManagerDataSource();
             dataSource.setDriverClassName("org.postgresql.Driver");
-            dataSource.setUrl("jdbc:postgresql://localhost:5432/postgres");
-            dataSource.setUsername("postgres");
-            dataSource.setPassword("aloogue");
+            dataSource.setUrl("jdbc:postgresql://"+ dbUri.getHost() + ':' + dbUri.getPort()+ dbUri.getPath()+"?sslmode=require");
+            dataSource.setUsername(username);
+            dataSource.setPassword(password);
             return dataSource;
         } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (URISyntaxException e) {
             e.printStackTrace();
         }
         return null;
