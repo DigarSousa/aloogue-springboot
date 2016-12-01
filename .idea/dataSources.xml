@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="3352990954">
+  <component name="DataSourceManagerImpl" format="xml" hash="1936106057">
     <data-source source="LOCAL" name="Servidor" uuid="eb772d75-2182-4365-b711-625c25cdf3cb">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
@@ -12,6 +12,18 @@
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://localhost:5432/postgres</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="OpenShift" uuid="4adeffc1-0040-407d-9c93-f89133d22c1d">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5432/aloogue</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="HEROKU" uuid="840ebf51-a527-4486-b1a3-02f760fd1196">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://ec2-54-235-132-192.compute-1.amazonaws.com:5432/decbhvi3apetej?sslmode=require</jdbc-url>
     </data-source>
   </component>
 </project>
