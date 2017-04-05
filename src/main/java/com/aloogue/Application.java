@@ -40,9 +40,7 @@ public class Application {
             dataSource.setUsername(username);
             dataSource.setPassword(password);
             return dataSource;
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (URISyntaxException e) {
+        } catch (ClassNotFoundException | URISyntaxException e) {
             e.printStackTrace();
         }
         return null;
@@ -60,7 +58,7 @@ public class Application {
     @Bean
     public Properties jpaProperties() {
         Properties properties = new Properties();
-        properties.put(AvailableSettings.HBM2DDL_AUTO, "create-drop");
+        properties.put(AvailableSettings.HBM2DDL_AUTO, "validate");
         return properties;
     }
 

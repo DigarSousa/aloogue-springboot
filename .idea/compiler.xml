@@ -26,6 +26,8 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="aloogue-springboot_main" target="1.8" />
+      <module name="aloogue-springboot_test" target="1.8" />
       <module name="AloogueSpringApplication" target="1.8" />
       <module name="alooguespringapplication_main" target="1.8" />
       <module name="alooguespringapplication_test" target="1.8" />
