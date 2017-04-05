@@ -58,7 +58,7 @@ public class Application {
     @Bean
     public Properties jpaProperties() {
         Properties properties = new Properties();
-        properties.put(AvailableSettings.HBM2DDL_AUTO, "validate");
+        properties.put(AvailableSettings.HBM2DDL_AUTO, "update");
         return properties;
     }
 
