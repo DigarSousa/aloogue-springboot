@@ -9,7 +9,7 @@ import java.io.Serializable;
 @Getter
 @Setter
 @Entity
-@Table(name = "user_app")
+@Table(name = "user_app",uniqueConstraints = @UniqueConstraint(columnNames = {"email"}))
 public class UserApp implements Serializable {
 
     @Id
