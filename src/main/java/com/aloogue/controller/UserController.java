@@ -23,7 +23,7 @@ public class UserController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public UserApp saveUser(@RequestBody UserApp userApp) {
+    public ResponseEntity<UserApp> saveUser(@RequestBody UserApp userApp) {
         return userService.saveUser(userApp);
     }
 

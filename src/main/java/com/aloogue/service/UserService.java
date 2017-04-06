@@ -3,6 +3,8 @@ package com.aloogue.service;
 import com.aloogue.model.user.UserApp;
 import com.aloogue.model.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -10,8 +12,11 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    public UserApp saveUser(UserApp user) {
-        return userRepository.save(user);
+    public ResponseEntity<UserApp> saveUser(UserApp user) {
+        if (userRepository.findByEmail(user.getEmail()) != null) {
+            return new ResponseEntity<>(new UserApp(), HttpStatus.CONFLICT);
+        }
+        return new ResponseEntity<>(userRepository.save(user), HttpStatus.ACCEPTED);
     }
 
     public void deleteUser(UserApp userApp) {
