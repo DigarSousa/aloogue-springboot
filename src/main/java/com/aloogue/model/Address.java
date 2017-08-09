@@ -1,6 +1,6 @@
 package com.aloogue.model;
 
-import com.aloogue.model.place.Place;
+import com.aloogue.place.Place;
 import com.auth0.jwt.internal.com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Data;

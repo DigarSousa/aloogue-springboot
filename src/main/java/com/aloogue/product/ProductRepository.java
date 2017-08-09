@@ -1,6 +1,6 @@
-package com.aloogue.model.product;
+package com.aloogue.product;
 
-import com.aloogue.model.place.Place;
+import com.aloogue.place.Place;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;

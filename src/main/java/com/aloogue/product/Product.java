@@ -1,6 +1,6 @@
-package com.aloogue.model.product;
+package com.aloogue.product;
 
-import com.aloogue.model.place.Place;
+import com.aloogue.place.Place;
 import lombok.Data;
 
 import javax.persistence.*;

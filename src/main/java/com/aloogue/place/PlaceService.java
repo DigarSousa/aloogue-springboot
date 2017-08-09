@@ -1,8 +1,6 @@
-package com.aloogue.service;
+package com.aloogue.place;
 
-import com.aloogue.model.place.Place;
-import com.aloogue.model.place.PlaceRepository;
-import com.aloogue.model.product.ProductRepository;
+import com.aloogue.product.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

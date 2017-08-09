@@ -1,8 +1,5 @@
-package com.aloogue.controller;
+package com.aloogue.product;
 
-
-import com.aloogue.model.product.Product;
-import com.aloogue.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

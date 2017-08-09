@@ -24,7 +24,7 @@ public class Application {
         SpringApplication.run(Application.class, args);
     }
 
-    @Bean
+    /*@Bean
     public DataSource dataSource() {
         URI dbUri;
         try {
@@ -71,5 +71,5 @@ public class Application {
         factoryBean.setJpaProperties(jpaProperties());
         return factoryBean;
     }
-
+*/
 }

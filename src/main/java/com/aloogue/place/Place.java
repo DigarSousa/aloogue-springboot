@@ -1,7 +1,7 @@
-package com.aloogue.model.place;
+package com.aloogue.place;
 
 import com.aloogue.model.Address;
-import com.aloogue.model.user.UserApp;
+import com.aloogue.user.UserApp;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.Setter;

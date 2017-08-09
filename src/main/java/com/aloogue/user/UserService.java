@@ -1,7 +1,5 @@
-package com.aloogue.service;
+package com.aloogue.user;
 
-import com.aloogue.model.user.UserApp;
-import com.aloogue.model.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

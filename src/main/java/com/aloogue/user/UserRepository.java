@@ -1,4 +1,4 @@
-package com.aloogue.model.user;
+package com.aloogue.user;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;

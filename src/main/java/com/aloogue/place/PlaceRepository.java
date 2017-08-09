@@ -1,4 +1,4 @@
-package com.aloogue.model.place;
+package com.aloogue.place;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
