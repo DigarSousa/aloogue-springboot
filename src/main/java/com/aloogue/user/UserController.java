@@ -2,6 +2,7 @@ package com.aloogue.user;
 
 import com.aloogue.user.UserApp;
 import com.aloogue.user.UserService;
+import com.sun.tools.internal.xjc.reader.xmlschema.bindinfo.BIConversion;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,7 +25,9 @@ public class UserController {
 
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<UserApp> saveUser(@RequestBody UserApp userApp) {
-        return userService.saveUser(userApp);
+        UserApp savedUser = userService.saveUser(userApp);
+        HttpStatus httpStatus = savedUser != null ? HttpStatus.OK : HttpStatus.CONFLICT;
+        return new ResponseEntity<UserApp>(savedUser, httpStatus);
     }
 
     @RequestMapping(method = RequestMethod.PUT)
