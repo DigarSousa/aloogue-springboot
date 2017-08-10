@@ -21,7 +21,7 @@ public class UserServiceTest {
 
     @Test
     public void saveUser() {
-        UserApp toSave = getCompletUser();
+        UserApp toSave = getUser();
 
         when(userRepository.save(toSave)).thenReturn(toSave);
 
@@ -31,7 +31,18 @@ public class UserServiceTest {
         assertThat(savedUser.getId()).isEqualTo(1l);
     }
 
-    private UserApp getCompletUser() {
+    @Test
+    public void findUserByMailAndPassword() {
+        UserApp userApp = getUser();
+        when(userRepository.findByEmailAndPassword("name@mail.com", "pass")).thenReturn(userApp);
+
+        UserApp returnedUser = userService.login("name@mail.com", "pass");
+        assertThat(returnedUser).isNotNull();
+        assertThat(returnedUser.getName()).isEqualTo("name");
+    }
+
+
+    private UserApp getUser() {
         return new UserApp(1l, "name", "name@mail.com", "pass");
     }
 

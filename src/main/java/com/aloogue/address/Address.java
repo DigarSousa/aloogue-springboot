@@ -1,4 +1,4 @@
-package com.aloogue.model;
+package com.aloogue.address;
 
 import com.aloogue.place.Place;
 import com.auth0.jwt.internal.com.fasterxml.jackson.annotation.JsonIgnore;
