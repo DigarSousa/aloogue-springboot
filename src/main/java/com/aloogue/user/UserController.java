@@ -1,8 +1,5 @@
 package com.aloogue.user;
 
-import com.aloogue.user.UserApp;
-import com.aloogue.user.UserService;
-import com.sun.tools.internal.xjc.reader.xmlschema.bindinfo.BIConversion;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,7 +17,7 @@ public class UserController {
         if (userApp != null) {
             return new ResponseEntity<>(userApp, HttpStatus.ACCEPTED);
         }
-        return new ResponseEntity<>(new UserApp(), HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(UserApp.builder().build(), HttpStatus.NOT_FOUND);
     }
 
     @RequestMapping(method = RequestMethod.POST)

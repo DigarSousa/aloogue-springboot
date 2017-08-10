@@ -1,19 +1,15 @@
 package com.aloogue.user;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Builder
 @Entity
-@Table(name = "user_app",uniqueConstraints = @UniqueConstraint(columnNames = {"email"}))
+@Table(name = "user_app", uniqueConstraints = @UniqueConstraint(columnNames = {"email"}))
 public class UserApp implements Serializable {
 
     @Id
