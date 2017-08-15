@@ -2,13 +2,13 @@ package com.aloogue.config;
 
 import org.hibernate.cfg.AvailableSettings;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.JpaVendorAdapter;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.Database;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
-import org.springframework.stereotype.Component;
 
 import javax.sql.DataSource;
 
@@ -16,9 +16,8 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Properties;
 
-
-@Component
 @Profile("prod")
+@Configuration
 public class ProductionProfileConfig {
     private static final String COM_ALOOGUE_MODEL = "com.aloogue.model";
 
@@ -30,13 +29,11 @@ public class ProductionProfileConfig {
             String username = dbUri.getUserInfo().split(":")[0];
             String password = dbUri.getUserInfo().split(":")[1];
 
-            System.out.println("conecting to: " + dbUri.getHost());
-
             Class.forName("org.postgresql.Driver");
 
             DriverManagerDataSource dataSource = new DriverManagerDataSource();
             dataSource.setDriverClassName("org.postgresql.Driver");
-            dataSource.setUrl("jdbc:postgresql://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath() + "?sslmode=require");
+            dataSource.setUrl("jdbc:postgresql://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath());
             dataSource.setUsername(username);
             dataSource.setPassword(password);
             return dataSource;
@@ -72,3 +69,5 @@ public class ProductionProfileConfig {
         return factoryBean;
     }
 }
+
+
