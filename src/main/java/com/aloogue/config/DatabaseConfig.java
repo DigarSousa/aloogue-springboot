@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Profile;
 @Configuration
 @Profile("dev")
 public class DatabaseConfig {
-    @Value("${spring.h2.console.path}")
+   /* @Value("${spring.h2.console.path}")
     String path;
 
     @Value("${spring.h2.console.enabled}")
@@ -22,6 +22,6 @@ public class DatabaseConfig {
         servletRegistrationBean.addUrlMappings(path);
         servletRegistrationBean.setEnabled(enabled);
         return servletRegistrationBean;
-    }
+    }*/
 
 }
