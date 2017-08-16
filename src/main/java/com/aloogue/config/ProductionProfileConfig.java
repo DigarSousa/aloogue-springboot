@@ -16,16 +16,16 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Properties;
 
-@Profile("prod")
 @Configuration
+@Profile("prod")
 public class ProductionProfileConfig {
-    private static final String COM_ALOOGUE_MODEL = "com.aloogue.model";
+    private static final String COM_ALOOGUE_MODEL = "com.aloogue";
 
     @Bean
     public DataSource dataSource() {
         URI dbUri;
         try {
-            dbUri = new URI(System.getenv("DATABASE_URL"));
+            dbUri= new URI(System.getenv("DATABASE_URL"));
             String username = dbUri.getUserInfo().split(":")[0];
             String password = dbUri.getUserInfo().split(":")[1];
 
@@ -33,7 +33,7 @@ public class ProductionProfileConfig {
 
             DriverManagerDataSource dataSource = new DriverManagerDataSource();
             dataSource.setDriverClassName("org.postgresql.Driver");
-            dataSource.setUrl("jdbc:postgresql://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath());
+            dataSource.setUrl("jdbc:postgresql://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath()+"?sslmode=require");
             dataSource.setUsername(username);
             dataSource.setPassword(password);
             return dataSource;
@@ -55,7 +55,7 @@ public class ProductionProfileConfig {
     @Bean
     public Properties jpaProperties() {
         Properties properties = new Properties();
-        properties.put(AvailableSettings.HBM2DDL_AUTO, "update");
+        properties.put(AvailableSettings.HBM2DDL_AUTO, "create-update");
         return properties;
     }
 
