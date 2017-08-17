@@ -10,10 +10,11 @@ import java.io.Serializable;
 
 @Entity
 @Table
+@SequenceGenerator(name = "product_sequence", allocationSize = 1)
 public class Product implements Serializable {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "product_sequence")
     @Column(name = "id_product")
     private Long id;
 

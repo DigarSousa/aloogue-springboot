@@ -10,17 +10,18 @@ import java.io.Serializable;
 
 @Data
 @Entity
+@SequenceGenerator(name = "address_sequence", allocationSize = 1)
 public class Address implements Serializable {
 
     @Id
-    @GeneratedValue
-    @Column(name="id_address")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "address_sequence")
+    @Column(name = "id_address")
     private Long id;
 
     @Column
     private String country;
 
-    @Column(name="state_fu")
+    @Column(name = "state_fu")
     private String stateFU;
 
     @Column
@@ -46,7 +47,7 @@ public class Address implements Serializable {
 
     @JsonBackReference
     @JsonIgnore
-    @OneToOne(targetEntity = Place.class,fetch = FetchType.LAZY)
+    @OneToOne(targetEntity = Place.class, fetch = FetchType.LAZY)
     @JoinColumn(name = "id_place")
     private Place place;
 }

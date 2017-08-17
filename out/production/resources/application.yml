@@ -2,7 +2,7 @@ spring:
   jpa:
     show-sql: true
     hibernate.ddl-auto: create-update
-  profiles.active: dev
+  profiles.active: prod
 
 ---
 spring:
@@ -17,7 +17,8 @@ spring:
     properties.hibernate.dialect: org.hibernate.dialect.H2Dialect
 
 h2:
-    path: /h2/*
+  path: /h2/*
+  console-enabled: true
 
 ---
 

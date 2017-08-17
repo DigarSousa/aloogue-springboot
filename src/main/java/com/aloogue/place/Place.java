@@ -14,10 +14,11 @@ import java.io.Serializable;
 
 @Getter
 @Setter
+@SequenceGenerator(name = "place_sequence", allocationSize = 1)
 public class Place implements Serializable {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "place_sequence")
     @Column(name = "id_place")
     private Long id;
 
