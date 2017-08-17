@@ -55,7 +55,7 @@ public class ProductionProfileConfig {
     @Bean
     public Properties jpaProperties() {
         Properties properties = new Properties();
-        properties.put(AvailableSettings.HBM2DDL_AUTO, "update");
+        properties.put(AvailableSettings.HBM2DDL_AUTO, "create-update");
         return properties;
     }
 
