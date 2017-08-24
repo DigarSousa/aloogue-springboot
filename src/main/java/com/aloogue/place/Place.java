@@ -11,9 +11,6 @@ import java.io.Serializable;
 
 @Entity
 @Table
-
-@Getter
-@Setter
 @SequenceGenerator(name = "place_sequence", allocationSize = 1)
 public class Place implements Serializable {
 

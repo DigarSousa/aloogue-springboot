@@ -6,7 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(value = "userapp")
+@RequestMapping(value = "user")
 public class UserController {
     @Autowired
     private UserService userService;
@@ -23,7 +23,7 @@ public class UserController {
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<UserApp> saveUser(@RequestBody UserApp userApp) {
         UserApp savedUser = userService.saveUser(userApp);
-        HttpStatus httpStatus = savedUser != null ? HttpStatus.OK : HttpStatus.CONFLICT;
+        HttpStatus httpStatus = savedUser != null ? HttpStatus.CREATED : HttpStatus.CONFLICT;
         return new ResponseEntity<UserApp>(savedUser, httpStatus);
     }
 

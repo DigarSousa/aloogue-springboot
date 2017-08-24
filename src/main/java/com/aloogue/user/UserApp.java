@@ -1,9 +1,10 @@
 package com.aloogue.user;
 
-import lombok.*;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.experimental.Tolerate;
 
 import javax.persistence.*;
-import javax.print.attribute.standard.MediaSize;
 import java.io.Serializable;
 
 @Getter
@@ -12,6 +13,10 @@ import java.io.Serializable;
 @Table(name = "user_app", uniqueConstraints = @UniqueConstraint(columnNames = {"email"}))
 @SequenceGenerator(name = "user_sequence", allocationSize = 1)
 public class UserApp implements Serializable {
+
+    @Tolerate
+    public UserApp() {
+    }
 
     @Id
     @Column(name = "id_user_app")

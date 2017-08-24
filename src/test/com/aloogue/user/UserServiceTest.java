@@ -21,19 +21,18 @@ public class UserServiceTest {
 
     @Test
     public void saveUser() {
-        UserApp toSave = UserApp.builder().id(1l).build();
-
+        UserApp toSave = getCompletUser();
         when(userRepository.save(toSave)).thenReturn(toSave);
 
         UserApp savedUser = userService.saveUser(toSave);
 
         assertThat(savedUser).isNotNull();
-        assertThat(savedUser.getId()).isEqualTo(1l);
+        assertThat(savedUser.getId()).isEqualTo(1L);
     }
 
     @Test
     public void findUserByMailAndPassword() {
-        UserApp userApp = UserApp.builder().email("name@mail.com").name("name").build();
+        UserApp userApp = getCompletUser();
         when(userRepository.findByEmailAndPassword("name@mail.com", "pass")).thenReturn(userApp);
 
         UserApp returnedUser = userService.login("name@mail.com", "pass");
@@ -41,5 +40,8 @@ public class UserServiceTest {
         assertThat(returnedUser.getName()).isEqualTo("name");
     }
 
+    public UserApp getCompletUser() {
+        return new UserApp(1L, "name", "name@mail.com", "pass123");
+    }
 
 }

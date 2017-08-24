@@ -33,16 +33,16 @@ public class UserControllerTest {
     }
 
     @Test
-    public void doLogin(){
-        UserApp toFind= getCompletUser();
-        when(userService.login("name@mail.com","pass123")).thenReturn(toFind);
+    public void doLogin() {
+        UserApp toFind = getCompletUser();
+        when(userService.login("name@mail.com", "pass123")).thenReturn(toFind);
 
-        UserApp returnedUser= userController.login("name@mail.com", "pass123").getBody();
+        UserApp returnedUser = userController.login("name@mail.com", "pass123").getBody();
         assertThat(returnedUser).isNotNull();
         assertThat(returnedUser.getName()).isEqualTo("name");
     }
 
     public UserApp getCompletUser() {
-        return new UserApp(1l, "name","name@mail.com","pass123");
+        return new UserApp(1L, "name", "name@mail.com", "pass123");
     }
 }
