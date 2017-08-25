@@ -5,8 +5,12 @@ import static io.restassured.RestAssured.*;
 import com.aloogue.FunctionalTest;
 import org.apache.http.HttpStatus;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class UserControllerFunctionalTest extends FunctionalTest {
+
+    @Autowired
+    UserRepository userRepository;
 
     @Test
     public void return200WithExpectedUserAndId() {
@@ -20,13 +24,20 @@ public class UserControllerFunctionalTest extends FunctionalTest {
                 .statusCode(HttpStatus.SC_ACCEPTED);
     }
 
-    private void createUser(UserApp userApp) {
+    @Test
+    public void saveUserThenReturn201AndSavedUserWithId() {
+        UserApp toSave = UserApp.builder().name("name").email("user@mail.com").password("pass").build();
         given().contentType("application/json")
-                .body(userApp)
+                .body(toSave)
                 .when()
                 .post("/user")
                 .then()
                 .statusCode(HttpStatus.SC_CREATED);
+
+    }
+
+    private void createUser(UserApp userApp) {
+        userRepository.save(userApp);
     }
 
 }

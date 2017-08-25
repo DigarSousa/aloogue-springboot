@@ -22,7 +22,8 @@ public class UserControllerTest {
 
     @Test
     public void saveUser() {
-        UserApp toSave = getCompletUser();
+        UserApp toSave = UserApp.builder().id(1L).name("name").build();
+
         when(userService.saveUser(toSave)).thenReturn(toSave);
 
         UserApp returnedUser = userController.saveUser(toSave).getBody();
@@ -34,15 +35,11 @@ public class UserControllerTest {
 
     @Test
     public void doLogin() {
-        UserApp toFind = getCompletUser();
+        UserApp toFind = UserApp.builder().name("name").email("name@mail.com").password("pass").build();
         when(userService.login("name@mail.com", "pass123")).thenReturn(toFind);
 
         UserApp returnedUser = userController.login("name@mail.com", "pass123").getBody();
         assertThat(returnedUser).isNotNull();
         assertThat(returnedUser.getName()).isEqualTo("name");
-    }
-
-    public UserApp getCompletUser() {
-        return new UserApp(1L, "name", "name@mail.com", "pass123");
     }
 }
