@@ -5,6 +5,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.xml.ws.ResponseWrapper;
+
 @RestController
 @RequestMapping(value = "user")
 public class UserController {
@@ -27,12 +29,8 @@ public class UserController {
         return new ResponseEntity<UserApp>(savedUser, httpStatus);
     }
 
-    @RequestMapping(method = RequestMethod.PUT)
-    public void updateUser(@RequestBody UserApp userApp) {
-        userService.saveUser(userApp);
-    }
-
     @RequestMapping(method = RequestMethod.DELETE)
+    @ResponseStatus(code = HttpStatus.OK)
     public void deleteUser(@RequestBody UserApp userApp) {
         userService.deleteUser(userApp);
     }

@@ -1,7 +1,7 @@
 spring:
   jpa:
     show-sql: true
-  profiles.active: dev
+  profiles.active: prod
 
 ---
 spring:
