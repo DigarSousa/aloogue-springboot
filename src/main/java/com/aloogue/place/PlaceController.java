@@ -1,11 +1,10 @@
 package com.aloogue.place;
 
-import com.aloogue.place.Place;
-import com.aloogue.place.PlaceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import com.aloogue.place.PlaceService;
 
 @RestController
 @RequestMapping(value = "place")
@@ -24,6 +23,7 @@ public class PlaceController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
+    @ResponseStatus(HttpStatus.CREATED)
     public Place savePlace(@RequestBody Place place) {
         return placeService.savePlace(place);
     }

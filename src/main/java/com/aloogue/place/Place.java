@@ -3,16 +3,25 @@ package com.aloogue.place;
 import com.aloogue.address.Address;
 import com.aloogue.user.UserApp;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.experimental.Tolerate;
 
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
 @Table
+@Getter
+@Builder
 @SequenceGenerator(name = "place_sequence", allocationSize = 1)
 public class Place implements Serializable {
+
+    @Tolerate
+    public Place() {
+
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "place_sequence")

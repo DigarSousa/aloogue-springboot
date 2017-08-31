@@ -5,8 +5,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.xml.ws.ResponseWrapper;
-
 @RestController
 @RequestMapping(value = "user")
 public class UserController {
