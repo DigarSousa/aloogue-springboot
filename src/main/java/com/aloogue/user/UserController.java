@@ -17,7 +17,7 @@ public class UserController {
         if (userApp != null) {
             return new ResponseEntity<>(userApp, HttpStatus.ACCEPTED);
         }
-        return new ResponseEntity<>(UserApp.builder().build(), HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(UserApp.builder().build(), HttpStatus.UNAUTHORIZED);
     }
 
     @RequestMapping(method = RequestMethod.POST)
